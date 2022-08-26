@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'monsterrat';
+    src: url(fonts/FontsFree-Net-Montserrat-Medium.ttf);
+}
+
+:root {
+    --ff-primary: 'monsterrat';
+    --fs-text: 2rem;
+    --bg-image: url("images/forest.png");
+    --bg-card: linear-gradient(180deg, rgba(217, 217, 217, 0.4) 0%, rgba(217, 217, 217, 0.1) 100%);
+    --bg-component: linear-gradient(180deg, rgba(217, 217, 217, 0.6) 0%, rgba(217, 217, 217, 0.2) 100%);
+    --border-card: 3px solid rgba(255, 255, 255, 0.2);
+    --box-shadow: 0px 4px 25px -1px rgba(0, 0, 0, 0.2);
+    --backdrop-filter: blur(40px);
+    --clr-text: rgba(255, 255, 255);
+}
+
+* {
+    box-sizing: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+body, 
+.card-container,
+.card-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+body {
+    font-family: var(--ff-primary);
+    height: 100vh;   
+    background-image: var(--bg-image);
+    background-size: cover;
+    color: var(--clr-text);
+}
+
+.card-container {
+    background: var(--bg-card);
+    border: var(--border-card);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: var(--backdrop-filter);
+    border-radius: 2.5rem;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0 1rem;
+}
+
+.card-container h2 {
+    font-size: var(--fs-text);
+    font-weight: 700;
+    letter-spacing: 0.135rem;
+    text-transform: uppercase;
+}
+
+
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    height: 1px;
+    margin-top: 1rem;
+    background: var(--bg-component);
+    border: var(--border-card);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: var(--backdrop-filter);
+}
+
+
+
+audio::-webkit-media-controls,
+audio::-webkit-media-controls-panel {
+    display: none;
+}
+
+.card-btn-container {
+    flex-direction: row;
+    gap: 1.25rem;
+}
+
+
+.card-btn {
+    background: var(--bg-component);
+    border: var(--border-card);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: var(--backdrop-filter);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+.card-btn-sm {
+    font-size: 2.5rem;
+}
+
+.card-btn-lg {
+    font-size: 4.6rem;
+}
+
+@media (max-width:400px) {
+
+    .card-container {
+        width: 80%;
+    }
+}
