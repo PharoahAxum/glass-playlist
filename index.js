@@ -1,5 +1,5 @@
-const trackTitle = document.getElementById("card-title")
-const trackImage = document.getElementById("card-image")
+const trackTitle = document.getElementById("track-title")
+const trackImage = document.getElementById("track-image")
 const myAudio = document.getElementById("my-audio")
 
 const prevBtn = document.getElementById("prev-btn")
@@ -16,7 +16,7 @@ let trackList = [
         background: "images/forest.png"
     },
     {
-        title: "Sea Wave",
+        title: "Sea",
         image: "images/blue.png",
         path: "track/sea-pixabay.mp3",
         background: "images/sea.png"
@@ -53,9 +53,10 @@ function playPause() {
 
 function loadTrack(track) {
     const {title, image, path, background} = track
+
     document.body.style.backgroundImage = `url("${background}")`
-    trackTitle.textContent = `${title}`
-    trackImage.innerHTML = `<img src="${image}" alt="">`
+    trackTitle.innerHTML = `<h2 data-aos="fade-in" data-aos-duration="3000">${title}</h2>`
+    trackImage.innerHTML = `<img data-aos="fade-in" data-aos-duration="3000" src="${image}" alt="">`
     myAudio.innerHTML = `<source src="${path}">`
     myAudio.load()
     
@@ -84,7 +85,7 @@ function nextTrack() {
     }
 
     loadTrack(trackList[trackPosition])
-    playTrack(trackPosition)
+    playTrack()
 }
 
 function prevTrack() {
@@ -97,7 +98,7 @@ function prevTrack() {
     }
 
     loadTrack(trackList[trackPosition])
-    playTrack(trackPosition)
+    playTrack()
 
 }
 

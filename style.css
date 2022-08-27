@@ -5,31 +5,28 @@
 
 :root {
     --ff-primary: 'monsterrat';
-    --fs-text: 2rem;
+    --fs-text: 2.5rem;
     --bg-image: url("images/forest.png");
-    --bg-card: linear-gradient(180deg, rgba(217, 217, 217, 0.4) 0%, rgba(217, 217, 217, 0.1) 100%);
+    --bg-track: linear-gradient(180deg, rgba(217, 217, 217, 0.4) 0%, rgba(217, 217, 217, 0.1) 100%);
     --bg-component: linear-gradient(180deg, rgba(217, 217, 217, 0.6) 0%, rgba(217, 217, 217, 0.2) 100%);
-    --border-card: 3px solid rgba(255, 255, 255, 0.2);
+    --border-track: 3px solid rgba(255, 255, 255, 0.2);
     --box-shadow: 0px 4px 25px -1px rgba(0, 0, 0, 0.2);
-    --backdrop-filter: blur(40px);
+    --backdrop-filter: blur(30px);
     --clr-text: rgba(255, 255, 255);
+
+    --fs-text-mb: 1.8rem;
+    --border-track-mb: 1px solid rgba(255, 255, 255, 0.2);
+    --box-shadow-mb: 0px 4px 5px -1px rgba(0, 0, 0, 0.2);
+    --backdrop-filter-mb: blur(20px);
 }
 
-* {
-    box-sizing: 0;
+*, ::before, ::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 
-body, 
-.card-container,
-.card-btn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 
 body {
     font-family: var(--ff-primary);
@@ -39,76 +36,103 @@ body {
     color: var(--clr-text);
 }
 
-.card-container {
-    background: var(--bg-card);
-    border: var(--border-card);
+body, 
+.track-container,
+.track-bar,
+.track-btn,
+.track-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.track-bar,
+.track-btn,
+.track-container {
+    border: var(--border-track);
     box-shadow: var(--box-shadow);
     backdrop-filter: var(--backdrop-filter);
-    border-radius: 2.5rem;
+}
+
+.track-container {
+    background: var(--bg-track);
+    border-radius: 40px;
     flex-direction: column;
     gap: 3rem;
     padding: 0 1rem;
 }
 
-.card-container h2 {
+#track-image img {
+    width: 95%;
+}
+
+#track-title h2 {
     font-size: var(--fs-text);
     font-weight: 700;
     letter-spacing: 0.135rem;
     text-transform: uppercase;
 }
 
+.track-bar,
+.track-btn {
+    background: var(--bg-component);
+}
 
-.progress-bar {
-    display: flex;
+.track-bar {
     flex-direction: row;
     width: 85%;
     height: 1px;
     margin-top: 1rem;
-    background: var(--bg-component);
-    border: var(--border-card);
-    box-shadow: var(--box-shadow);
-    backdrop-filter: var(--backdrop-filter);
+    
 }
-
-
 
 audio::-webkit-media-controls,
 audio::-webkit-media-controls-panel {
     display: none;
 }
 
-.card-btn-container {
+.track-btn-container {
     flex-direction: row;
     gap: 1.25rem;
 }
 
 
-.card-btn {
-    background: var(--bg-component);
-    border: var(--border-card);
-    box-shadow: var(--box-shadow);
-    backdrop-filter: var(--backdrop-filter);
+.track-btn {
     border-radius: 50%;
     font-size: 1.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     margin-top: 0;
     margin-bottom: 3rem;
 }
 
-.card-btn-sm {
+.track-btn-sm {
     font-size: 2.5rem;
 }
 
-.card-btn-lg {
+.track-btn-lg {
     font-size: 4.6rem;
 }
 
-@media (max-width:400px) {
+@media (max-width:450px) {
 
-    .card-container {
-        width: 80%;
+    .track-container {
+        margin: 0 2.25rem;
+        box-shadow: var(--box-shadow-mb);
+        border: var(--border-track-mb);
+        backdrop-filter: var(--backdrop-filter-mb);
+        padding: 0;
     }
+
+    .track-container h2 {
+        font-size: var(--fs-text-mb);
+    }
+
+    #track-image img {
+        width: 85%;
+    }
+
+    .track-btn-lg {
+        font-size: 4rem;
+    }
+
 }

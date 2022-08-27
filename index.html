@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Glass Playlist</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>  
-    </audio>
-    <div class="card-container">
-        <div id="card-image"><img src="images/green.png" alt=""></div>
-        <h2 id="card-title" class="card-title">Forest</h2>
-        <div class="progress-bar">
+    <div class="track-container" data-aos="fade-up" data-aos-duration="2000">
+        <div id="track-image"><img src="images/green.png" alt=""></div>
+        <div id="track-title"><h2>Forest</h2></div>
+        <div class="track-bar">
             <audio id="my-audio" loop="loop" controls="controls" >
         </div>
         
-        <div class="card-btn-container">
-            <div id="prev-btn" class="card-btn card-btn-sm">
+        <div class="track-btn-container" >
+            <div id="prev-btn" class="track-btn track-btn-sm">
                 <i class='bx bx-skip-previous' ></i>
             </div>
-            <div id="play-btn" class="card-btn card-btn-lg">
+            <div id="play-btn" class="track-btn track-btn-lg">
                 <i class='bx bx-play' ></i>
             </div>
-            <div id="next-btn" class="card-btn card-btn-sm">
+            <div id="next-btn" class="track-btn track-btn-sm">
                 <i class='bx bx-skip-next' ></i>
             </div>
         </div>
     </div>
 
-    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
     <script src="index.js"></script>
 </body>
