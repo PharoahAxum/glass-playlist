@@ -8,7 +8,7 @@ const playBtn = document.getElementById("play-btn")
 
 let isPlaying = false
 
-let trackList = [
+const trackList = [
     {
         title: "Forest",
         image: "images/green.png",
