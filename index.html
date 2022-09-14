@@ -10,13 +10,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>  
-    <div class="track-container" data-aos="fade-up" data-aos-duration="2000">
-        <div id="track-image">
-            <img src="images/green.png" alt="">
-        </div>
-        <div id="track-title">
-            <h2>Forest</h2>
-        </div>
+    <div id="track-container" class="track-container" data-aos="fade-up" data-aos-duration="2000">
+        <div id="track-image"></div>
+        <div id="track-title"></div>
         <div class="track-bar">
             <audio id="my-audio" loop="loop" controls="controls" >
         </div>
@@ -38,6 +34,7 @@
         AOS.init();
     </script>
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
 </body>
 </html>
+

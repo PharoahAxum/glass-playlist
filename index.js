@@ -1,61 +1,19 @@
-const trackTitle = document.getElementById("track-title")
-const trackImage = document.getElementById("track-image")
-const myAudio = document.getElementById("my-audio")
+import {trackList} from "./data.js"
+
+
+const myAudio = document.getElementById("my-audio") 
 
 const prevBtn = document.getElementById("prev-btn")
 const nextBtn = document.getElementById("next-btn")
 const playBtn = document.getElementById("play-btn")
 
+
 let isPlaying = false
-
-const trackList = [
-    {
-        title: "Forest",
-        image: "images/green.png",
-        path: "track/forest-pixabay.mp3",
-        background: "images/forest.png"
-    },
-    {
-        title: "Sea",
-        image: "images/blue.png",
-        path: "track/sea-pixabay.mp3",
-        background: "images/sea.png"
-    },
-    {
-        title: "Meadow",
-        image: "images/pink.png",
-        path: "track/nightingale-pixabay.mp3",
-        background: "images/meadow.png"
-    },
-    {
-        title: "Stream",
-        image: "images/dark-green.png",
-        path: "track/stream-pixabay.mp3",
-        background: "images/stream.png"
-    },
-    {
-        title: "Aurora",
-        image: "images/light-green.png",
-        path: "track/space-pixabay.mp3",
-        background: "images/aurora.png"
-    },
-    {
-        title: "Dawn",
-        image: "images/brown.png",
-        path: "track/dawn-pixabay.mp3",
-        background: "images/dawn.png"
-    },
-    {
-        title: "Night",
-        image: "images/purple.png",
-        path: "track/night-pixabay.mp3",
-        background: "images/night.png"
-    },
-]
-
 
 let trackPosition = 0
 const totalTrack = trackList.length
+
+loadTrack(trackList[0])
 
 playBtn.addEventListener("click", function() {
     playPause()
@@ -65,26 +23,22 @@ prevBtn.addEventListener("click", prevTrack)
 nextBtn.addEventListener("click", nextTrack)
 
 
-function playPause() {
+function loadTrack(track) {
+    const {title, image, path, background} = track
+    document.body.style.backgroundImage = `url("${background}")`
+    document.getElementById("track-image").innerHTML = `<img data-aos="fade-in" data-aos-duration="3000" src="${image}" alt="">`
+    document.getElementById("track-title").innerHTML = `<h2 data-aos="fade-in" data-aos-duration="3000">${title}</h2>`
+    myAudio.innerHTML = `<source src="${path}">`
+    myAudio.load()
+}
 
+
+function playPause() {
     if (!isPlaying) {
-        loadTrack(trackList[trackPosition])
         playTrack()    
     } else { 
         pauseTrack()
     } 
-}
-
-
-function loadTrack(track) {
-    const {title, image, path, background} = track
-
-    document.body.style.backgroundImage = `url("${background}")`
-    trackTitle.innerHTML = `<h2 data-aos="fade-in" data-aos-duration="3000">${title}</h2>`
-    trackImage.innerHTML = `<img data-aos="fade-in" data-aos-duration="3000" src="${image}" alt="">`
-    myAudio.innerHTML = `<source src="${path}">`
-    myAudio.load()
-    
 }
 
 function playTrack() {
@@ -101,8 +55,8 @@ function pauseTrack() {
 }
 
 
+
 function nextTrack() {
-    
     if (trackPosition === totalTrack - 1) {
         trackPosition = 0
     } else {
@@ -113,9 +67,9 @@ function nextTrack() {
     playTrack()
 }
 
-function prevTrack() {
-    
 
+
+function prevTrack() {
     if (trackPosition === 0) {
         trackPosition = totalTrack - 1
     } else {
@@ -124,7 +78,6 @@ function prevTrack() {
 
     loadTrack(trackList[trackPosition])
     playTrack()
-
 }
 
 
